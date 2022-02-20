@@ -35,7 +35,7 @@ while ($arrayp=mysqli_fetch_array($exeSQL))
 	echo "<td style='border: 0px'>";
 	echo "<p><h5>".$arrayp['prodName']."</h5>"; //display product name as contained in the array
 	echo "<p>".$arrayp['prodDescripshort']; //display product description
-	echo "<p><b>&pound".$arrayp['prodPrice']."</b>"; //display product price
+	echo "<p><br><b>&pound".$arrayp['prodPrice']."</b>"; //display product price
 	echo "</td>";
 	echo "</tr>";
 }
