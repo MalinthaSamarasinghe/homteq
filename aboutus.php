@@ -25,8 +25,8 @@ echo "<p class='updateInfo'>Smart thermostat systems let you turn it off instant
 echo "when you’re heading home to switch it back on, so it’s warm when you get in.<br>"; 
 echo "They can figure out your routine and customise your heating and hot water so it’s on when you need it and off when you don’t, helping to reduce your energy bills.<br>";
 
-<p class='updateInfo'><b>SMART SPEAKERS</b></p>";
-<p class='updateInfo'>We’ve all got too much to do.<br>"; 
+echo "<p class='updateInfo'><b>SMART SPEAKERS</b></p>";
+echo "<p class='updateInfo'>We’ve all got too much to do.<br>"; 
 echo "Being able to command a virtual assistant to do something for you saves time, and it also means you can multitask more effectively.<br>"; 
 echo "If your hands are covered in flour but you need a two-minute timer, you can set it by voice without even having to stop kneading.<br>"; 
 echo "Because virtual assistants live in a speaker with a microphone, they’re present in your home whenever you need them.<br>"; 
