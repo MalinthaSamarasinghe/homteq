@@ -31,7 +31,7 @@ echo "Being able to command a virtual assistant to do something for you saves ti
 echo "If your hands are covered in flour but you need a two-minute timer, you can set it by voice without even having to stop kneading.<br>"; 
 echo "Because virtual assistants live in a speaker with a microphone, they’re present in your home whenever you need them.<br>"; 
 
-<p class='updateInfo'>Whatever smart tech you are after, homteq has it on offer!</p>";
+echo "<p class='updateInfo'>Whatever smart tech you are after, homteq has it on offer!</p>";
 
 include("footfile.html"); //include head layout
 
