@@ -48,6 +48,7 @@ else
 	//echo "<p>Basket unchanged";
 }
 
+echo "<br>";
 $total= 0; //create a variable $total and intialize it to zero.
 //create HTML table with header to display the content of the basket: prod name, price, selected quantity and subtotal
 echo "<p><table id= 'baskettable'>";
@@ -98,7 +99,7 @@ if (isset($_SESSION['basket']))
 
 //display total
 echo "<tr>";
-echo "<th id='total' colspan=3>TOTAL</th>";
+echo "<th colspan=3 style='text-align: right;' >TOTAL</th>";
 echo "<th>&pound".number_format($total,2)."</th>";
 echo "<th></th>";
 echo "</tr>";
