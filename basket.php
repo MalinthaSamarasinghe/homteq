@@ -8,6 +8,16 @@ echo "<body>";
 include ("headfile.html"); //include header layout file 
 echo "<h4>".$pagename."</h4>"; //display name of the page on the web page
 
+//if the value of the product id to be deleted (which was posted through the hidden field) is set
+if (isset($_POST['del_prodid'])) {
+	//capture the posted product id and assign it to a local variable $delprodid
+	$delprodid = $_POST['del_prodid'];
+	//unset the cell of the session for this posted product id variable
+	unset($_SESSION['basket'][$delprodid]);
+	//display a "1 item removed from the basket" message
+    echo "<p><b>1 item removed from the basket</b></p>";
+}
+
 //if the posted ID of the new product is set i.e. if the user is adding a new product into the basket
 if (isset($_POST['h_prodid']))
 {
@@ -42,7 +52,7 @@ $total= 0; //create a variable $total and intialize it to zero.
 //create HTML table with header to display the content of the basket: prod name, price, selected quantity and subtotal
 echo "<p><table id= 'baskettable'>";
 echo "<tr>";
-echo "<th>Product Name</th><th>Price</th><th>Quantity</th><th>Subtotal</th>";
+echo "<th>Product Name</th><th>Price</th><th>Quantity</th><th>Subtotal</th><th>Remove Product</th>";
 echo "</tr>";
 //if the session array $_SESSION['basket'] is set
 if (isset($_SESSION['basket']))
@@ -56,20 +66,30 @@ if (isset($_SESSION['basket']))
 		//SQL query to retrieve from Product table details of selected product for which id matches $index
 		//execute query and create array of records $arrayp
 		$SQL="select prodId, prodName, prodPrice from Product where prodId=".$index;
+		//run SQL query for connected DB or exit and display error message
 		$exSQL=mysqli_query($conn, $SQL) or die (mysql_error());
-		$arrayp=mysqli_fetch_array($exSQL);
-		echo "<tr>";
-		//display product name & product price using array of records $arrayp
-		echo "<td>".$arrayp['prodName']."</td>";
-		echo "<td>&pound".number_format($arrayp['prodPrice'],2)."</td>";
-		//display selected quantity of product retrieved from the cell of session array and now in $value
-		echo "<td style='text-align:center;'>".$value."</td>";
-		//calculate subtotal, store it in a local variable $subtotal and display it
-		$subtotal=$arrayp['prodPrice'] * $value;
-		echo "<td>&pound".number_format($subtotal,2)."</td>";
-		echo "</tr>"; 
-		//increase total by adding the subtotal to the current total
-		$total=$total+$subtotal;
+		while ($arrayp=mysqli_fetch_array($exSQL)) {
+			echo "<tr>";
+			//display product name & product price using array of records $arrayp
+			echo "<td>".$arrayp['prodName']."</td>";
+			echo "<td>&pound".number_format($arrayp['prodPrice'],2)."</td>";
+			//display selected quantity of product retrieved from the cell of session array and now in $value
+			echo "<td style='text-align:center;'>".$value."</td>";
+			//calculate subtotal, store it in a local variable $subtotal and display it
+			$subtotal=$arrayp['prodPrice'] * $value;
+			echo "<td>&pound".number_format($subtotal,2)."</td>";
+			//increase total by adding the subtotal to the current total
+			$total=$total+$subtotal;
+			
+			echo "<form action=basket.php method=post>";
+            echo "<td>";
+			echo "<input type=submit value='Remove' id='submitbtn'>";
+			echo "</td>";
+            //pass the product id to the next page basket.php as a hidden value
+            echo "<input type=hidden name='del_prodid' value=".$arrayp['prodId'].">";
+            echo "</form>";
+			echo "</tr>";
+		}
 	}
 //else display empty basket message
 } else {
@@ -78,8 +98,9 @@ if (isset($_SESSION['basket']))
 
 //display total
 echo "<tr>";
-echo"<th colspan=3>TOTAL</th>";
-echo"<th>&pound".number_format($total,2)."</th>";
+echo "<th id='total' colspan=3>TOTAL</th>";
+echo "<th>&pound".number_format($total,2)."</th>";
+echo "<th></th>";
 echo "</tr>";
 echo "</table>";
 
