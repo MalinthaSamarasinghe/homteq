@@ -170,7 +170,6 @@ p{
 	color:#194a8d;
 	font-size: 20;
 	margin: 0 0 .5em;
-	padding-left: 15px;
 }
 
 #footer
@@ -222,7 +221,6 @@ td
 }
 
 #baskettable{
-	margin-left: 2rem;
 	border-collapse: collapse;
 	border-radius: 30px;
 	overflow: hidden;
