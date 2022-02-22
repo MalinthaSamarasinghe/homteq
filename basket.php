@@ -15,7 +15,7 @@ if (isset($_POST['del_prodid'])) {
 	//unset the cell of the session for this posted product id variable
 	unset($_SESSION['basket'][$delprodid]);
 	//display a "1 item removed from the basket" message
-    echo "<p><b>1 item removed from the basket</b></p>";
+    echo "<p style='padding-left: 32px;'><b>1 item removed from the basket</b></p>";
 }
 
 //if the posted ID of the new product is set i.e. if the user is adding a new product into the basket
@@ -40,7 +40,7 @@ if (isset($_POST['h_prodid']))
 	$_SESSION['basket'][$newprodid]=$reququantity;
 
 	//Display "1 item added to the basket " message
-	echo "<p><b>1 item added</b></p>";
+	echo "<p style='padding-left: 32px;'><b>1 item added</b></p>";
 }
 //else display "Current basket unchanged" message
 else
@@ -93,7 +93,7 @@ if (isset($_SESSION['basket']))
 	}
 //else display empty basket message
 } else {
-    echo "<p><b>Empty basket</b>";
+    echo "<p style='padding-left: 32px;'><b>Empty basket</b>";
 }
 
 //display total
@@ -104,13 +104,13 @@ echo "<th></th>";
 echo "</tr>";
 echo "</table>";
 
-echo "<br><p><a href=clearbasket.php>CLEAR BASKET</a></p>";
+echo "<br><p style='padding-left: 32px;'><a href=clearbasket.php>CLEAR BASKET</a></p>";
 
 if (isset($_SESSION['userid'])) {
     echo "<br>To finalise your order: <a href=checkout.php>Checkout</a>";    
 } else {
-    echo "<br><p>New homteq customers: <a href=signup.php>Sign up</a></p>";
-    echo "<br><p>Returning homteq customers: <a href=login.php>Login</a></p>";
+    echo "<br><p style='padding-left: 32px;'>New homteq customers: <a href=signup.php>Sign up</a></p>";
+    echo "<br><p style='padding-left: 32px;'>Returning homteq customers: <a href=login.php>Login</a></p>";
 }
 
 include("footfile.html"); //include head layout

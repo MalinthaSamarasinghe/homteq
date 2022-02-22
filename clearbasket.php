@@ -17,7 +17,7 @@ echo "<h4>".$pagename."</h4>"; //display name of the page on the web page
 
 unset($_SESSION['basket']);
 
-echo "<p><b>Your basket has been cleared</b>";
+echo "<p style='padding-left: 32px;'><b>Your basket has been cleared</b>";
 
 include("footfile.html"); //include foot layout
 
