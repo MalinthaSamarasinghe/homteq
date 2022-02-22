@@ -35,16 +35,16 @@ echo "<td style='border: 0px'>";
 
 echo "<p><h5>".$arrayp['prodName']."</h5></p>"; //display product name as contained in the array
 
-echo "<br><p>".$arrayp['prodDescripLong']."</p>"; //display product description
-echo "<br><p><b>&pound".$arrayp['prodPrice']."</b></p>"; //display product price
-echo "<br><p> Left in Stock: ".$arrayp['prodQuantity']."</p>"; //display product Quantity
+echo "<br><p style='padding-left: 15px;'>".$arrayp['prodDescripLong']."</p>"; //display product description
+echo "<br><p style='padding-left: 15px;'><b>&pound".$arrayp['prodPrice']."</b></p>"; //display product price
+echo "<br><p style='padding-left: 15px;'> Left in Stock: ".$arrayp['prodQuantity']."</p>"; //display product Quantity
 
-echo "<br><p>Number to be purchased: ";
+echo "<br><p style='padding-left: 15px;'>Number to be purchased: ";
 
 //create form made of one text field and one button for user to enter quantity
 //the value entered in the form will be posted to the basket.php to be processed
 echo "<form action=basket.php method=post>";
-echo "<br><select name='p_quantity'>";
+echo "<br><select name='p_quantity' style='margin-left: 15px;'>";
 
 
 //for loop to display the number of products for a particular product
