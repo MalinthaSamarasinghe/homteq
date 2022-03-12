@@ -92,6 +92,7 @@ if (isset($_SESSION['basket']))
 			echo "</tr>";
 		}
 	}
+	
 //else display empty basket message
 } else {
     echo "<p style='padding-left: 32px;'><b>Empty basket</b>";
