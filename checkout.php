@@ -75,7 +75,7 @@ if (mysqli_query($conn, $SQL) and isset($_SESSION['basket']) and count($_SESSION
 		
 		//SQL INSERT query to store details of ordered items in Order_line table in the DB i.e. order number, 
 		//product id (index), ordered quantity (content of the session array) and subtotal. Execute INSERT query.
-		$SQLol = "INSERT into Order_Line(orderNo, prodId, quantityOrdered, subTotal) 
+		$SQLol = "INSERT into Order_line(orderNo, prodId, quantityOrdered, subTotal) 
 		VALUES ('".$orderno."', '".$index."','".$value."','".$subtotal."')";
 		$exeSQLol = mysqli_query($conn, $SQLol) or die (mysqli_error($conn));
 
