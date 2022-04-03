@@ -29,8 +29,8 @@ echo "<table style='border: 0px; margin-left: 300px; background-color: #ffffff; 
 
 	//create a submit button and reset button
 	echo "<tr>";
-		echo "<td style='border:0px; padding-left:25px'><input type=submit value='Login' name=submitbtn id='submitbtn'></td>";
-		echo "<td style='border:0px; padding-left: 170px'; padding-right:25px><input type=reset value='Clear Form' name=submitbtn id='submitbtn'></td>";
+		echo "<td style='border:0px; padding-left:25px'><input type=reset value='Clear Form' name=submitbtn id='submitbtn'></td>";
+		echo "<td style='border:0px; padding-left: 200px'><input type=submit value='Login' name=submitbtn id='submitbtn'></td>";
 	echo "</tr>";
 
 echo "</table>";
