@@ -4,7 +4,7 @@
 if (isset($_SESSION['userid']))
 {
 	//display first name and surname on the right hand-side, right under the navigation bar
-	echo "<p style='float: right'><i><b>Account: ".$_SESSION['fname']." ".$_SESSION['sname']."</b></i></p>";
+	echo "<p style='float: right'>👤 ".$_SESSION['fname']." ".$_SESSION['sname']." | User type: ".$_SESSION['usertype']."</p><br>";
 }
 
 ?>
