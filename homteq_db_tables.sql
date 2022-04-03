@@ -70,7 +70,7 @@ VALUES
 
 -- Create the Users table
 CREATE TABLE IF NOT EXISTS Users 
-(
+  (
     userId 			INT(4) 			NOT NULL AUTO_INCREMENT,
     userType 		VARCHAR(1) 		NOT NULL,
     userFName 		VARCHAR(100) 	NOT NULL,
@@ -124,27 +124,28 @@ VALUES
 
 
 -- Create the Orders table
-CREATE TABLE IF NOT EXISTS Orders (
-    orderNo INT(4) NOT NULL AUTO_INCREMENT,
-    userId INT(4) NOT NULL,
-    orderDateTime DATETIME NOT NULL,
-    orderTotal DECIMAL(8, 2) DEFAULT 0.00,
-    CONSTRAINT orderno_orders_pk PRIMARY KEY (orderNo),
-    CONSTRAINT userid_orders_fk FOREIGN KEY (userId) REFERENCES users (userId) ON UPDATE CASCADE ON DELETE CASCADE
+CREATE TABLE IF NOT EXISTS Orders 
+  (
+	orderNo 		INT 			AUTO_INCREMENT,
+	userId 			INT 			NOT NULL,
+	orderDateTime 	DATETIME 		NOT NULL,
+	orderTotal 		DECIMAL(8,2) 	NOT NULL DEFAULT '0.00',
+	orderStatus 	VARCHAR(50) 	DEFAULT NULL,
+	shippingDate 	DATE 			DEFAULT NULL,
+	CONSTRAINT o_ordno_pk PRIMARY KEY (orderNo),
+	CONSTRAINT o_uid_fk FOREIGN KEY (userId) REFERENCES Users(userId) ON DELETE CASCADE
   );
-ALTER TABLE orders
-ADD
-  orderStatus VARCHAR(100);
-ALTER TABLE orders
-ADD
-  collectDateTime DATETIME;
-CREATE TABLE IF NOT EXISTS order_line (
-    orderLineId INT(4) NOT NULL AUTO_INCREMENT,
-    orderNo INT(4) NOT NULL,
-    prodId INT(4) NOT NULL,
-    quantityOrdered INT(4) NOT NULL,
-    subTotal DECIMAL(8, 2) DEFAULT 0.00,
-    CONSTRAINT orderlineid_orderline_pk PRIMARY KEY (orderLineId),
-    CONSTRAINT orderno_orderline_fk FOREIGN KEY (orderNo) REFERENCES orders (orderNo) ON UPDATE CASCADE ON DELETE CASCADE,
-    CONSTRAINT prodid_orderline_fk FOREIGN KEY (prodId) REFERENCES product (prodId) ON UPDATE CASCADE ON DELETE CASCADE
+
+
+-- Create the order_line table
+CREATE TABLE IF NOT EXISTS order_line 
+  (
+    oderLineId 			INT 			AUTO_INCREMENT,
+	orderNo 			INT 			NOT NULL,
+	prodId 				INT 			NOT NULL,
+	quantityOrdered 	INT 			NOT NULL,
+	subTotal 			DECIMAL(8,2) 	NOT NULL DEFAULT '0.00',
+	CONSTRAINT ol_olno_pk PRIMARY KEY (oderLineId),
+	CONSTRAINT ol_ordno_fk FOREIGN KEY (orderNo) REFERENCES Orders(orderNo) ON DELETE CASCADE,
+	CONSTRAINT ol_prid_fk FOREIGN KEY (prodId) REFERENCES Product(prodId) ON DELETE CASCADE
   );
