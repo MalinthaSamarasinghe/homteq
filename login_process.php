@@ -76,13 +76,13 @@ else
 			//Greet the user by displaying their name using $_SESSION['fname'] and $_SESSION['sname']
 			//Welcome them as a customer by using $_SESSION['usertype ']
 			echo "<p style='padding-left: 32px;'>Welcome, ". $_SESSION['fname']." ".$_SESSION['sname']."</p>"; //display welcome greeting
- 
-			if ($_SESSION['usertype']=='C') //if user type is C, they are a customer
+
+			if ($_SESSION['usertype']== "c" || $_SESSION['usertype']== "C") //if user type is C, they are a customer
 			{ 
 				echo "<p style='padding-left: 32px;'>User Type: homteq Customer</p>";
 			}
 			
-			if ($_SESSION['usertype']=='A') //if user type is A, they are an admin
+			if ($_SESSION['usertype']=='A' || $_SESSION['usertype']== "a") //if user type is A, they are an admin
 			{ 
 				echo "<p style='padding-left: 32px;'>User type: homteq Administrator</p>";
 			}
