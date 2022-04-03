@@ -18,17 +18,17 @@ $email = $_POST['l_email'];
 $password = $_POST['l_password'];
 
 //display the content of the local variables to make sure the values are passed properly
-echo "<p>Login email: ".$email."</p>";
-echo "<p>Login pwd: ".$password."</p>";
+// echo "<p style='padding-left: 32px;'>Login email: ".$email."</p>";
+// echo "<p style='padding-left: 32px;'>Login pwd: ".$password."</p>";
 
 //if either the $email or the $password is empty	(hint: use the empty function)
 if (empty($email) or empty($password))  
 {
 	//Display error "Both email and password fields need to be filled in" message and link to login page
-	echo "<p><b>Login failed!</b>"; //display login error
+	echo "<p style='padding-left: 32px;'><b>Login failed!</b>"; //display login error
 	echo "<br>login form incomplete.";
 	echo "<br>Make sure you provide all the required details.</p>";
-	echo "<br><p> Go back to <a href=login.php>login</a></p>";
+	echo "<br><p style='padding-left: 32px;'>Go back to <a href=login.php>login</a></p>";
 }
 else
 {
@@ -46,9 +46,9 @@ else
 	if ($nbrecs ==0) //if nb of records is 0 i.e. if no records were located for which email matches entered email
 	{ 
 		//display error message "Email not recognised, login again"
-		echo "<p><b>Login failed!</b>"; //display login error
+		echo "<p style='padding-left: 32px;'><b>Login failed!</b>"; //display login error
 		echo "<br>Email not recognised.</p>";
-		echo "<br><p> Go back to <a href=login.php>login</a></p>";
+		echo "<br><p style='padding-left: 32px;'>Go back to <a href=login.php>login</a></p>";
 	}
 	else 
 	{
@@ -58,14 +58,14 @@ else
 		if ($arrayuser['userPassword'] <> $password) //if the pwd in the array matches the pwd entered in the form
 		{ 
 			//display error message "Password not recognised, login again"
-			echo "<p><b>Login failed!</b>"; //display login error
+			echo "<p style='padding-left: 32px;'><b>Login failed!</b>"; //display login error
 			echo "<br>Password not valid.</p>";
-			echo "<br><p> Go back to <a href=login.php>login</a></p>";
+			echo "<br><p style='padding-left: 32px;'>Go back to <a href=login.php>login</a></p>";
 		}
 		else 
 		{
 			//display login success message and store user id, user type, name into 4 session variables i.e.
-			echo "<p><b>Login success!</b></p>"; //display login success
+			echo "<p style='padding-left: 32px;'><b>Login success!</b></p>"; //display login success
 			
 			//create $_SESSION['userid'], $_SESSION['usertype'], $_SESSION['fname'], $_SESSION['sname'],
 			$_SESSION['userid'] = $arrayuser['userId']; //create session variable to store the user id
@@ -75,22 +75,23 @@ else
 			
 			//Greet the user by displaying their name using $_SESSION['fname'] and $_SESSION['sname']
 			//Welcome them as a customer by using $_SESSION['usertype ']
-			echo "<p>Welcome, ". $_SESSION['fname']." ".$_SESSION['sname']."</p>"; //display welcome greeting
+			echo "<p style='padding-left: 32px;'>Welcome, ". $_SESSION['fname']." ".$_SESSION['sname']."</p>"; //display welcome greeting
  
 			if ($_SESSION['usertype']=='C') //if user type is C, they are a customer
 			{ 
-				echo "<p>User Type: homteq Customer</p>";
+				echo "<p style='padding-left: 32px;'>User Type: homteq Customer</p>";
 			}
 			
 			if ($_SESSION['usertype']=='A') //if user type is A, they are an admin
 			{ 
-				echo "<p>User type: homteq Administrator</p>";
+				echo "<p style='padding-left: 32px;'>User type: homteq Administrator</p>";
 			}
  
-			echo "<br><p>Continue shopping for <a href=index.php>Home Tech</a>";
+			echo "<br><p style='padding-left: 32px;'>Continue shopping for <a href=index.php>Home Tech</a>";
 			echo "<br>View your <a href=basket.php>Smart Basket</a></p>";
 		}
 	}
+}
 
 include("footfile.html"); //include head layout
 
