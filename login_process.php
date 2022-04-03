@@ -77,17 +77,24 @@ else
 			//Welcome them as a customer by using $_SESSION['usertype ']
 			echo "<p style='padding-left: 32px;'>Welcome, ". $_SESSION['fname']." ".$_SESSION['sname']."</p>"; //display welcome greeting
 
+			//If the value for user type retrieved from the Users table (through an array) matches the letter 'C'
 			if ($_SESSION['usertype']== "c" || $_SESSION['usertype']== "C") //if user type is C, they are a customer
 			{ 
+				//Display a message to confirm that the user has logged in as a homteq Customer
 				echo "<p style='padding-left: 32px;'>User Type: homteq Customer</p>";
 			}
 			
+			//If the value for user type retrieved from the Users table (through an array) matches the letter 'A'
 			if ($_SESSION['usertype']=='A' || $_SESSION['usertype']== "a") //if user type is A, they are an admin
 			{ 
+				//Display a message to confirm that the user has logged in as a homteq Administrator
 				echo "<p style='padding-left: 32px;'>User type: homteq Administrator</p>";
 			}
  
+			//Display a link to the Index Page
 			echo "<br><p style='padding-left: 32px;'>Continue shopping for <a href=index.php>Home Tech</a>";
+			
+			//Display a link to the BasketPage
 			echo "<br>View your <a href=basket.php>Smart Basket</a></p>";
 		}
 	}
