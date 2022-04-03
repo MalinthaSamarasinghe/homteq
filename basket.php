@@ -109,11 +109,23 @@ echo "</table>";
 
 echo "<br><p style='padding-left: 32px;'><a href=clearbasket.php>CLEAR BASKET</a></p>";
 
+//if the session user id $_SESSION['userid'] is set (i.e. if the user has logged in successfully)
 if (isset($_SESSION['userid'])) {
-    echo "<br>To finalise your order: <a href=checkout.php>Checkout</a>";    
+	
+	if (isset($_SESSION['basket']))
+	{
+		//display a Checkout anchor to link to checkout.php
+		echo "<br><p style='padding-left: 32px;'>To finalise your order: <a href=checkout.php>Checkout</a></p>";
+	}	
+
 } else {
-    echo "<br><p style='padding-left: 32px;'>New homteq customers: <a href=signup.php>Sign up</a></p>";
+	
+	//display a Signup anchor for new customers to link to signup.php
+	echo "<br><p style='padding-left: 32px;'>New homteq customers: <a href=signup.php>Sign up</a></p>";
+	
+	//display a Login anchor for returning customers to link to login.php
     echo "<br><p style='padding-left: 32px;'>Returning homteq customers: <a href=login.php>Login</a></p>";
+
 }
 
 include("footfile.html"); //include head layout
