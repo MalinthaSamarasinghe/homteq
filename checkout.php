@@ -28,28 +28,9 @@ $currentdatetime = date('Y-m-d H:i:s');
 $SQL = "INSERT into Orders (userId, orderDateTime, orderStatus) 
 VALUES ('".$_SESSION['userid']."','".$currentdatetime."', 'Placed')";
 
-//if execution of the INSERT INTO SQL query to add new order is correct
-if (mysqli_query($conn, $SQL))
-{
-	//Display "order success" message
-	echo "<p><b>Order successfully placed!</b></p>";
-}
-else
-{
-	//Display "order error" message
-	echo "<p><b>Error with the placing of your order!</b></p>";
-}
-
-$currentdatetime = date('Y-m-d H:i:s');
-$SQL = "INSERT into Orders (userId, orderDateTime, orderStatus) 
-VALUES ('".$_SESSION['userid']."','".$currentdatetime."', 'Placed')";
-
 //if execution of SQL query to add new order correct and session basket is set and nb of elements in session is > 0
 if (mysqli_query($conn, $SQL) and isset($_SESSION['basket']) and count($_SESSION['basket'])>0)
 {
-	//Display "order success" message
-	echo "<p><b>Order successfully placed!</b></p>";
-	
 	//SQL SELECT query to retrieve max order number for current user (for which id matches the id in the session)
 	//to retrieve the order number of most recent order placed by current user i.e. the order just created
 	$maxSQL = "SELECT max(orderNo) as maxOrderNo, userId FROM Orders WHERE userId =".$_SESSION['userid'];
@@ -63,7 +44,8 @@ if (mysqli_query($conn, $SQL) and isset($_SESSION['basket']) and count($_SESSION
 	//store the value of this order number in a local variable and display the order number.
 	$orderno = $arrayo['maxOrderNo'];
 	
-	echo "<p>Order No: <b>".$orderno."</b></p>";
+	//Display "order success" message and order number message
+	echo "<p style='padding-left: 32px;'>The Order has been placed successfully. The order number is:  <b>".$orderno."</b></p><br>";
 	
 	$total = 0;
 	
@@ -127,7 +109,7 @@ if (mysqli_query($conn, $SQL) and isset($_SESSION['basket']) and count($_SESSION
 else
 {
 	//Display "order error" message
-	echo "<p><b>Error with the placing of your order!</b></p>";
+	echo "<p style='padding-left: 32px;'><b>Error with the placing of your order!</b></p>";
 }
 
 unset($_SESSION['basket']);
