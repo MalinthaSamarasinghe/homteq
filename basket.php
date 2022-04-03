@@ -101,9 +101,8 @@ if (isset($_SESSION['basket']))
 
 //display total
 echo "<tr>";
-echo "<th colspan=3 style='text-align: right;' >TOTAL</th>";
+echo "<th colspan=4 style='text-align: right;' >TOTAL</th>";
 echo "<th>&pound".number_format($total,2)."</th>";
-echo "<th></th>";
 echo "</tr>";
 echo "</table>";
 
