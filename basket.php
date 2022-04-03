@@ -6,6 +6,8 @@ echo "<link rel=stylesheet type=text/css href=mystylesheet.css>"; //Call in styl
 echo "<title>".$pagename."</title>"; //display name of the page as window title
 echo "<body>";
 include ("headfile.html"); //include header layout file 
+include ("detectlogin.php");
+
 echo "<h4>".$pagename."</h4>"; //display name of the page on the web page
 
 //if the value of the product id to be deleted (which was posted through the hidden field) is set
@@ -99,19 +101,30 @@ if (isset($_SESSION['basket']))
 
 //display total
 echo "<tr>";
-echo "<th colspan=3 style='text-align: right;' >TOTAL</th>";
+echo "<th colspan=4 style='text-align: right;' >TOTAL</th>";
 echo "<th>&pound".number_format($total,2)."</th>";
-echo "<th></th>";
 echo "</tr>";
 echo "</table>";
 
 echo "<br><p style='padding-left: 32px;'><a href=clearbasket.php>CLEAR BASKET</a></p>";
 
+//if the session user id $_SESSION['userid'] is set (i.e. if the user has logged in successfully)
 if (isset($_SESSION['userid'])) {
-    echo "<br>To finalise your order: <a href=checkout.php>Checkout</a>";    
+	
+	if (isset($_SESSION['basket']))
+	{
+		//display a Checkout anchor to link to checkout.php
+		echo "<br><p style='padding-left: 32px;'>To finalise your order: <a href=checkout.php>Checkout</a></p>";
+	}	
+
 } else {
-    echo "<br><p style='padding-left: 32px;'>New homteq customers: <a href=signup.php>Sign up</a></p>";
+	
+	//display a Signup anchor for new customers to link to signup.php
+	echo "<br><p style='padding-left: 32px;'>New homteq customers: <a href=signup.php>Sign up</a></p>";
+	
+	//display a Login anchor for returning customers to link to login.php
     echo "<br><p style='padding-left: 32px;'>Returning homteq customers: <a href=login.php>Login</a></p>";
+
 }
 
 include("footfile.html"); //include head layout
