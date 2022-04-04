@@ -28,7 +28,7 @@ if (!(empty($pname) || empty($spicname) || empty($lpicname) || empty($shortdesc)
 {
 
     //create a $SQL variable and populate it with a SQL statement that saves product details
-    $SQL = "insert into product (prodName, prodPicNameSmall, prodPicNameLarge, prodDescripShort, prodDescripLong, prodPrice, prodQuantity) 
+    $SQL = "insert into Product (prodName, prodPicNameSmall, prodPicNameLarge, prodDescripShort, prodDescripLong, prodPrice, prodQuantity) 
 	values ('".$pname."', '".$spicname."', '".$lpicname."', '".$shortdesc."', '".$longdesc."', ".$price.", ".$stockquantity.")";
 		
     //run SQL query for connected DB or exit and display error message
