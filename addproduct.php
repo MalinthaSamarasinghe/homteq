@@ -17,25 +17,25 @@ echo "<form action='addproduct_process.php' method='post'>";
 echo "<table id='checkouttable' style='border: 0px; margin-left: 300px; background-color: #ffffff; border-radius: 20px'>";
 
 echo "<tr><td padding-left:25px; padding-top:25px'>Product Name: </td>";
-echo "<td padding-right:25px; padding-top:25px'><input type=text name=r_firstname size=35></td></tr>";
+echo "<td padding-right:25px; padding-top:25px'><input type=text name=pname size=35></td></tr>";
 
 echo "<tr><td padding-left:25px'>Small Picture Name: </td>";
-echo "<td padding-right:25px'><input type=text name=r_lastname size=35></td></tr>";
+echo "<td padding-right:25px'><input type=text name=spicname size=35></td></tr>";
 
 echo "<tr><td padding-left:25px'>Large Picture Name: </td>";
-echo "<td padding-right:25px'><input type=text name=r_address size=35></td></tr>";
+echo "<td padding-right:25px'><input type=text name=lpicname size=35></td></tr>";
 
 echo "<tr><td padding-left:25px'>Short Description: </td>";
-echo "<td padding-right:25px'><input type=text name=r_postcode size=35></td></tr>";
+echo "<td padding-right:25px'><input type=text name=shortdesc size=35></td></tr>";
 
 echo "<tr><td padding-left:25px'>Long Description: </td>";
-echo "<td padding-right:25px'><input type=text name=r_telno size=35></td></tr>";
+echo "<td padding-right:25px'><input type=text name=longdesc size=35></td></tr>";
 
 echo "<tr><td padding-left:25px'>Price: </td>";
-echo "<td padding-right:25px'><input type=text name=r_email size=35></td></tr>";
+echo "<td padding-right:25px'><input type=text name=price size=35></td></tr>";
 
 echo "<tr><td padding-left:25px'>Initial Stock Quantity: </td>";
-echo "<td padding-right:25px'><input type=password name=r_password1 maxlength=10 size=35></td></tr>";
+echo "<td padding-right:25px'><input type=password name=stockquantity maxlength=10 size=35></td></tr>";
 
 echo "<tr>";
 echo "<td padding-left:25px'><input type=submit value='Add Product' name=submitbtn id='submitbtn'></td>";
