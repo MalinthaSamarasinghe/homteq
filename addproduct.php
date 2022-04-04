@@ -35,7 +35,7 @@ echo "<tr><td padding-left:25px'>Price: </td>";
 echo "<td padding-right:25px'><input type=text name=price size=35></td></tr>";
 
 echo "<tr><td padding-left:25px'>Initial Stock Quantity: </td>";
-echo "<td padding-right:25px'><input type=password name=stockquantity maxlength=10 size=35></td></tr>";
+echo "<td padding-right:25px'><input type=text name=stockquantity maxlength=10 size=35></td></tr>";
 
 echo "<tr>";
 echo "<td padding-left:25px'><input type=submit value='Add Product' name=submitbtn id='submitbtn'></td>";
